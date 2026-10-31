@@ -1,0 +1,17 @@
+{
+  "client_id": "klient-demo-pii",
+  "client_name": "Kowalski Instalacje sp. z o.o.",
+  "agency_name": "Twoja Agencja",
+  "goal": "Pozyskać leady na montaż instalacji fotowoltaicznych i pomp ciepła w woj. mazowieckim.",
+  "target": "Min. 40 leadów kwalifikowanych miesięcznie przy koszcie leada kwalifikowanego poniżej 250 zł.",
+  "period": "2026-06",
+  "sales_as_of": "2026-07-10",
+  "currency": "PLN",
+  "timezone": "Europe/Warsaw",
+  "definitions": {
+    "received": "Lead otrzymany = kompletne zgłoszenie z formularza Meta (telefon + zgoda marketingowa).",
+    "assessed": "Lead oceniony = handlowiec wykonał kontakt telefoniczny i zakwalifikował albo odrzucił.",
+    "qualified": "Lead kwalifikowany = potwierdzony budżet, decyzyjność i lokalizacja w zasięgu montażu.",
+    "sold": "Sprzedaż = podpisana umowa montażu w rozliczanej kohorcie."
+  }
+}

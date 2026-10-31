@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Feedback sprzedażowy — Kowalski Instalacje · czerwiec 2026</title>
+<style>
+  /* PROP DEMO: statyczny formularz bez backendu. Pokazuje, co widzi klient i jak dane trafiaja do systemu.
+     W produkcie (P0b) to bezpieczny, jednorazowy write-only magic-link — patrz PRD FDBK-01. */
+  :root { --ink:#14181d; --muted:#5b636d; --rule:#d9dde2; --accent:#1f3a5f; --bg:#eef0f2; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; font-size:15px; line-height:1.5; }
+  .card { max-width:620px; margin:24px auto; background:#fff; padding:28px 30px; box-shadow:0 2px 18px rgba(20,24,29,.12); }
+  .eyebrow { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); font-weight:700; }
+  h1 { font-size:22px; margin:4px 0 2px; }
+  .sub { color:var(--muted); font-size:14px; margin-bottom:6px; }
+  .lead { background:#f7f8f9; border-left:4px solid var(--ink); padding:10px 12px; font-size:14px; margin:14px 0 20px; }
+  .field { padding:14px 0; border-top:1px solid var(--rule); }
+  .field label.q { font-weight:700; display:block; }
+  .field .def { color:var(--muted); font-size:13px; margin:2px 0 8px; }
+  .row { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  input[type=number] { width:150px; padding:8px 10px; font-size:15px; border:1px solid var(--rule); border-radius:4px; }
+  input[type=number]:disabled { background:#f0f1f3; color:#aaa; }
+  .dk { font-size:13px; color:var(--muted); display:inline-flex; align-items:center; gap:5px; }
+  .reasons label { display:inline-flex; align-items:center; gap:6px; margin:4px 12px 4px 0; font-size:14px; }
+  button { margin-top:18px; background:var(--ink); color:#fff; border:0; padding:11px 20px; font-size:15px; border-radius:4px; cursor:pointer; }
+  .out { margin-top:18px; }
+  pre { background:#0f1319; color:#e6edf3; padding:14px; border-radius:6px; overflow:auto; font-size:12.5px; }
+  .note { font-size:12px; color:var(--muted); margin-top:6px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">Twoja Agencja · formularz feedbacku</div>
+  <h1>Wyniki leadów — czerwiec 2026</h1>
+  <div class="sub">Kowalski Instalacje sp. z o.o. · stan sprzedaży na 10.07.2026 · źródło: Meta Ads</div>
+  <div class="lead">Zajmie ok. 5 minut. Podajesz wyłącznie <strong>liczby zbiorcze</strong> dla leadów z Meta Ads — bez danych pojedynczych osób. Nie wiesz? Zaznacz „nie wiem" — nie zamienimy tego na zero.</div>
+
+  <form id="f">
+    <div class="field">
+      <label class="q" for="received">Leady otrzymane</label>
+      <div class="def">Kompletne zgłoszenie z formularza Meta (telefon + zgoda marketingowa).</div>
+      <div class="row"><input type="number" id="received" min="0" value="84"><label class="dk"><input type="checkbox" data-dk="received"> nie wiem</label></div>
+    </div>
+    <div class="field">
+      <label class="q" for="assessed">Leady ocenione</label>
+      <div class="def">Handlowiec wykonał kontakt i zakwalifikował albo odrzucił lead.</div>
+      <div class="row"><input type="number" id="assessed" min="0" value="84"><label class="dk"><input type="checkbox" data-dk="assessed"> nie wiem</label></div>
+    </div>
+    <div class="field">
+      <label class="q" for="qualified">Leady kwalifikowane</label>
+      <div class="def">Potwierdzony budżet, decyzyjność i lokalizacja w zasięgu montażu.</div>
+      <div class="row"><input type="number" id="qualified" min="0" value="39"><label class="dk"><input type="checkbox" data-dk="qualified"> nie wiem</label></div>
+    </div>
+    <div class="field">
+      <label class="q" for="sold">Sprzedaże</label>
+      <div class="def">Podpisana umowa montażu w tej kohorcie.</div>
+      <div class="row"><input type="number" id="sold" min="0" value="7"><label class="dk"><input type="checkbox" data-dk="sold"> nie wiem</label></div>
+    </div>
+    <div class="field">
+      <label class="q" for="declared_revenue">Deklarowany przychód (zł)</label>
+      <div class="def">Wartość umów z tej kohorty. To deklaracja — nie liczymy z tego ROAS-u.</div>
+      <div class="row"><input type="number" id="declared_revenue" min="0" value="61000"><label class="dk"><input type="checkbox" data-dk="declared_revenue"> nie wiem</label></div>
+    </div>
+    <div class="field reasons">
+      <label class="q">Dominujące powody odrzucenia (maks. 3)</label>
+      <div class="def">Wyłącznie tagi diagnostyczne — bez opisu pojedynczych przypadków.</div>
+      <label><input type="checkbox" name="r" value="spam/duplikat"> spam/duplikat</label>
+      <label><input type="checkbox" name="r" value="poza ofertą lub obszarem"> poza ofertą lub obszarem</label>
+      <label><input type="checkbox" name="r" value="brak kontaktu"> brak kontaktu</label>
+      <label><input type="checkbox" name="r" value="brak potrzeby/nie ten moment"> brak potrzeby/nie ten moment</label>
+      <label><input type="checkbox" name="r" value="brak budżetu"> brak budżetu</label>
+      <label><input type="checkbox" name="r" value="utracony w sprzedaży"> utracony w sprzedaży</label>
+    </div>
+
+    <button type="submit">Pokaż, jak to trafia do systemu →</button>
+  </form>
+
+  <div class="out" id="out" hidden>
+    <strong>To ląduje jako <code>client-feedback.json</code>:</strong>
+    <pre id="json"></pre>
+    <a id="dl" download="client-feedback.json">Pobierz client-feedback.json</a>
+    <div class="note">W produkcie klient tego nie widzi — dane zapisują się po stronie agencji przez bezpieczny, jednorazowy link (PRD FDBK-01).</div>
+  </div>
+</div>
+
+<script>
+  // Prop demo: skladamy JSON dokladnie w formacie, ktory czyta silnik (client-feedback.json).
+  const f = document.getElementById('f');
+  const numFields = ['received','assessed','qualified','sold','declared_revenue'];
+  f.querySelectorAll('input[data-dk]').forEach(cb => cb.addEventListener('change', () => {
+    const inp = document.getElementById(cb.dataset.dk);
+    inp.disabled = cb.checked;
+  }));
+  f.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = { period:'2026-06', sales_as_of:'2026-07-10', source:'Meta Ads' };
+    for (const key of numFields) {
+      const dk = f.querySelector(`input[data-dk="${key}"]`).checked;
+      data[key] = dk ? null : Number(document.getElementById(key).value); // "nie wiem" => null, nie 0
+    }
+    data.currency = 'PLN';
+    data.rejection_reasons = [...f.querySelectorAll('input[name=r]:checked')].slice(0,3).map(x => x.value);
+    const json = JSON.stringify(data, null, 2);
+    document.getElementById('json').textContent = json;
+    document.getElementById('dl').href = URL.createObjectURL(new Blob([json], {type:'application/json'}));
+    document.getElementById('out').hidden = false;
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "period": "2026-06",
+  "sales_as_of": "2026-07-10",
+  "source": "Meta Ads",
+  "received": 84,
+  "assessed": 84,
+  "qualified": 39,
+  "sold": 7,
+  "declared_revenue": 61000,
+  "currency": "PLN",
+  "rejection_reasons": ["poza ofertą lub obszarem", "brak kontaktu", "brak budżetu"]
+}

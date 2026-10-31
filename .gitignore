@@ -1,0 +1,29 @@
+node_modules/
+# Wygenerowane raporty klientow trzymamy poza git (moga zawierac realne dane).
+# Sample demo jest commitowany jawnie ponizej.
+output/*
+!output/klient-demo/
+*.log
+.DS_Store
+# Screeny podgladu kadru (regenerowalne skryptem); scenariusz i reset.ps1 sa trzymane w gicie.
+recording/*.png
+# Artefakt deployu (regenerowalny: node web/build-dist.mjs).
+dist/
+# Lokalny cache wranglera - zawiera account_id konta Cloudflare.
+.wrangler/
+
+# Publication boundary: local state and credentials never belong in Git.
+node_modules/
+.env
+.env.*
+!.env.example
+!.env.*.example
+.dev.vars
+config.local.json
+data/
+output/
+.wrangler/
+.vercel/
+*.log
+*.sqlite
+*.db

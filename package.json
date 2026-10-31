@@ -1,0 +1,18 @@
+{
+  "name": "raport-kliencki-pl",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Deterministyczny miesieczny raport dla agencji performance: Meta Ads CSV + feedback klienta -> memo decyzyjne (nie dashboard). Build pod demo YouTube.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "validate": "node src/validate.mjs fixtures/klient-demo",
+    "metrics": "node src/metrics.mjs fixtures/klient-demo",
+    "render": "node src/render.mjs output/klient-demo/cycle-2026-06",
+    "demo": "node src/metrics.mjs fixtures/klient-demo && node src/render.mjs output/klient-demo/cycle-2026-06",
+    "serve": "node web/serve.mjs",
+    "test": "node --test"
+  }
+}

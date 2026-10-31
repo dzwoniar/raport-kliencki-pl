@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Raport Kliencki - darmowe narzedzie dla agencji</title>
+    <style>
+      @font-face {
+        font-family: 'Anton';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('fonts/anton-400-latin-ext.woff2') format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+      @font-face {
+        font-family: 'Anton';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('fonts/anton-400-latin.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'IBM Plex Mono';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('fonts/ibm-plex-mono-400-latin-ext.woff2') format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+      @font-face {
+        font-family: 'IBM Plex Mono';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('fonts/ibm-plex-mono-400-latin.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'IBM Plex Mono';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url('fonts/ibm-plex-mono-500-latin-ext.woff2') format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+      @font-face {
+        font-family: 'IBM Plex Mono';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url('fonts/ibm-plex-mono-500-latin.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Special Elite';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('fonts/special-elite-400-latin-ext.woff2') format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+      @font-face {
+        font-family: 'Special Elite';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('fonts/special-elite-400-latin.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Rubik Wet Paint';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('fonts/rubik-wet-paint-400-latin-ext.woff2') format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+      @font-face {
+        font-family: 'Rubik Wet Paint';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('fonts/rubik-wet-paint-400-latin.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      :root {
+        --ink: #18140f;
+        --muted: #5c5445;
+        --faint: #948b76;
+        --rule: #ddd5c0;
+        --rule-strong: #b7ac8e;
+        --accent: #7a3220;
+        --bg: #e9e3d3;
+        --tile: #f5f2e6;
+        --danger: #b3261e;
+        --font-display: 'Anton', Impact, 'Arial Narrow', sans-serif;
+        --font-type: 'Special Elite', 'Courier New', Courier, monospace;
+        --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+        --font-hand: 'Rubik Wet Paint', cursive;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      .wrap {
+        max-width: 820px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      header.site {
+        background: #fff;
+        border-bottom: 1px solid var(--rule);
+      }
+      header.site .wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 14px 20px;
+      }
+      .brand {
+        font-family: var(--font-mono);
+        font-size: 13px;
+        letter-spacing: 0.02em;
+      }
+      .brand strong {
+        font-weight: 500;
+        color: var(--accent);
+      }
+      .brand-sub {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--faint);
+      }
+      .hero {
+        padding: 36px 0 8px;
+      }
+      .hero h1 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: 42px;
+        letter-spacing: 0.01em;
+        margin: 0 0 10px;
+      }
+      .lead {
+        font-family: var(--font-type);
+        font-size: 16px;
+        line-height: 1.6;
+        color: #2c281f;
+        margin: 0 0 14px;
+      }
+      .badges {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 0;
+        margin: 0;
+      }
+      .badges li {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        background: #fff;
+        border: 1px solid var(--rule);
+        border-radius: 999px;
+        padding: 4px 10px;
+        color: var(--muted);
+      }
+      .panel {
+        background: #fff;
+        border: 1.5px solid var(--ink);
+        border-radius: 2px;
+        padding: 20px;
+        margin: 20px 0;
+        box-shadow: 0 1px 10px rgba(24, 20, 15, 0.06);
+      }
+      .step {
+        margin: 0 0 18px;
+      }
+      .step h2 {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--accent);
+        margin: 0 0 6px;
+      }
+      .hint {
+        font-size: 13px;
+        color: var(--muted);
+        margin: 6px 0 0;
+      }
+      .row {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      select,
+      input[type='text'],
+      input[type='number'] {
+        font: inherit;
+        font-size: 15px;
+        padding: 8px 10px;
+        border: 1px solid var(--rule);
+        border-radius: 6px;
+        background: #fff;
+        width: 100%;
+      }
+      select {
+        max-width: 460px;
+      }
+      .or {
+        text-align: center;
+        color: var(--faint);
+        font-size: 13px;
+        margin: 14px 0;
+      }
+      .drop {
+        border: 1.5px dashed var(--rule-strong);
+        border-radius: 8px;
+        padding: 18px;
+        text-align: center;
+        color: var(--muted);
+        background: var(--tile);
+      }
+      .drop.over {
+        border-color: var(--accent);
+        background: #f1e6e0;
+      }
+      .file-label {
+        color: var(--accent);
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      code {
+        font-family: var(--font-mono);
+        background: #ece6d5;
+        padding: 1px 5px;
+        border-radius: 4px;
+        font-size: 0.88em;
+      }
+      .csv-status {
+        margin-top: 8px;
+        font-size: 13px;
+        color: var(--faint);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px 14px;
+        margin: 6px 0;
+      }
+      .grid.nums {
+        grid-template-columns: repeat(5, 1fr);
+      }
+      label {
+        display: block;
+        font-size: 13px;
+        color: var(--muted);
+      }
+      label input {
+        margin-top: 4px;
+      }
+      label.full {
+        margin: 8px 0;
+      }
+      details {
+        margin-top: 10px;
+      }
+      summary {
+        cursor: pointer;
+        font-size: 13px;
+        color: var(--accent);
+      }
+      .btn {
+        font-family: var(--font-mono);
+        font-weight: 500;
+        font-size: 13px;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 9px 16px;
+        border: 1px solid var(--accent);
+        border-radius: 2px;
+        background: #fff;
+        color: var(--accent);
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+      }
+      .btn:hover {
+        background: #f1e6e0;
+      }
+      .btn.primary {
+        background: var(--accent);
+        color: #fff;
+      }
+      .btn.primary:hover {
+        background: #5c2618;
+      }
+      #generate-btn {
+        margin-top: 6px;
+      }
+      .result {
+        margin: 20px 0;
+      }
+      .refuse {
+        font-family: var(--font-type);
+        background: #fff;
+        border: 1.5px solid var(--danger);
+        border-left: 5px solid var(--danger);
+        border-radius: 2px;
+        padding: 18px;
+      }
+      .refuse-head {
+        font-family: var(--font-mono);
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--danger);
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+      .refuse ul {
+        margin: 8px 0;
+        padding-left: 20px;
+      }
+      .refuse li {
+        margin: 6px 0;
+      }
+      .refuse-why {
+        font-size: 13px;
+        color: var(--muted);
+        margin-top: 10px;
+      }
+      .memo-actions {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+      }
+      .memo-note {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--faint);
+      }
+      #memo-frame {
+        width: 100%;
+        height: 1100px;
+        border: 1px solid var(--rule);
+        border-radius: 2px;
+        background: #fff;
+      }
+      .cta {
+        background: #fff;
+        border: 1.5px solid var(--ink);
+        border-radius: 2px;
+        padding: 22px;
+        margin: 20px 0;
+        text-align: center;
+      }
+      .cta h2 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: 26px;
+        letter-spacing: 0.01em;
+        margin: 0 0 8px;
+      }
+      .cta p {
+        font-family: var(--font-type);
+        color: var(--muted);
+        max-width: 560px;
+        margin: 0 auto 14px;
+      }
+      .site-foot {
+        border-top: 1px solid var(--rule);
+        background: #fff;
+        margin-top: 30px;
+      }
+      .site-foot .wrap {
+        font-family: var(--font-mono);
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 16px 20px;
+        font-size: 11px;
+        color: var(--faint);
+        flex-wrap: wrap;
+      }
+      @media (max-width: 640px) {
+        .grid,
+        .grid.nums {
+          grid-template-columns: 1fr 1fr;
+        }
+        .hero h1 {
+          font-size: 28px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site">
+      <div class="wrap">
+        <div class="brand">Narzedzia dla agencji &middot; <strong>Jakub Dzwoniarski</strong></div>
+        <div class="brand-sub">Kolejne narzedzia wkrotce</div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="hero">
+        <h1>Raport Kliencki</h1>
+        <p class="lead">
+          Zamien miesieczny eksport z Meta Ads i kilka liczb od klienta w
+          <strong>jedna strone = decyzje</strong>. Za darmo, w Twojej przegladarce - dane klienta
+          nie wychodza na zaden serwer.
+        </p>
+        <ul class="badges">
+          <li>Darmowe</li>
+          <li>Bez logowania</li>
+          <li>Dane zostaja u Ciebie (RODO)</li>
+          <li>1 strona zamiast 40</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="step">
+          <h2>1 &middot; Wyprobuj na przykladzie</h2>
+          <p class="hint">
+            Zobacz wynik na syntetycznych danych - takze przypadki, w ktorych narzedzie odmawia.
+          </p>
+          <div class="row">
+            <select id="fixture-select">
+              <option value="">- wybierz przyklad -</option>
+            </select>
+            <button id="fixture-btn" class="btn">Pokaz</button>
+          </div>
+        </div>
+
+        <div class="or">albo uzyj wlasnych danych</div>
+
+        <div class="step">
+          <h2>2 &middot; Wgraj eksport z Meta Ads (CSV)</h2>
+          <div id="drop-zone" class="drop">
+            Przeciagnij plik <code>.csv</code> tutaj albo
+            <label class="file-label"
+              >wybierz plik<input id="csv-input" type="file" accept=".csv" hidden
+            /></label>
+            <div id="csv-status" class="csv-status">Nie wczytano pliku.</div>
+          </div>
+          <p class="hint">
+            Eksport na poziomie kampanii. Kolumny: zrodlo; id_konta; id_kampanii; nazwa; okres;
+            timezone; waluta; spend; impressions; clicks; platform_leads. Bez kolumn z danymi
+            osobowymi leadow.
+          </p>
+        </div>
+
+        <div class="step">
+          <h2>3 &middot; Liczby od klienta i opis</h2>
+          <div class="grid">
+            <label>Nazwa klienta<input id="c_name" type="text" placeholder="np. Kowalski Instalacje" /></label>
+            <label>Twoja agencja<input id="c_agency" type="text" placeholder="np. Twoja Agencja" /></label>
+            <label>Okres (RRRR-MM)<input id="c_period" type="text" placeholder="2026-06" /></label>
+            <label>Stan sprzedazy na (RRRR-MM-DD)<input id="c_sales_as_of" type="text" placeholder="2026-07-10" /></label>
+            <label>Waluta<input id="c_currency" type="text" value="PLN" /></label>
+          </div>
+          <label class="full">Cel<input id="c_goal" type="text" placeholder="Co mial osiagnac budzet w tym okresie" /></label>
+          <label class="full">Cel liczbowy okresu<input id="c_target" type="text" placeholder="np. min. 40 leadow kwalifikowanych ponizej 250 zl" /></label>
+          <div class="grid nums">
+            <label>Leady otrzymane<input id="f_received" type="number" min="0" placeholder="puste = N/A" /></label>
+            <label>Ocenione<input id="f_assessed" type="number" min="0" /></label>
+            <label>Kwalifikowane<input id="f_qualified" type="number" min="0" /></label>
+            <label>Sprzedane<input id="f_sold" type="number" min="0" /></label>
+            <label>Deklarowany przychod<input id="f_revenue" type="number" min="0" /></label>
+          </div>
+          <p class="hint">Puste pole = "nie wiem" (zostaje N/A, nie zero).</p>
+          <details>
+            <summary>Definicje etapow i powody odrzucenia (opcjonalne)</summary>
+            <label class="full">Def. "otrzymany"<input id="def_received" type="text" /></label>
+            <label class="full">Def. "oceniony"<input id="def_assessed" type="text" /></label>
+            <label class="full">Def. "kwalifikowany"<input id="def_qualified" type="text" /></label>
+            <label class="full">Def. "sprzedaz"<input id="def_sold" type="text" /></label>
+            <label class="full">Powody odrzucenia (po przecinku)<input id="f_reasons" type="text" /></label>
+          </details>
+        </div>
+
+        <button id="generate-btn" class="btn primary">Generuj memo</button>
+      </section>
+
+      <section id="result" class="result"></section>
+
+      <section class="cta">
+        <h2>Chcesz ten raport automatycznie co miesiac - pod swoja marka?</h2>
+        <p>
+          To narzedzie robisz sam. Wersje zautomatyzowana (Twoje logo, bez mojej stopki, co miesiac
+          bez klikania) wdrazam pod Twoja agencje.
+        </p>
+        <a id="cta-mail" class="btn primary" href="#">Napisz w sprawie wdrozenia -&gt;</a>
+      </section>
+    </main>
+
+    <footer class="site-foot">
+      <div class="wrap">
+        <span>Dane wprowadzone do narzedzia nie opuszczaja Twojej przegladarki. Zero wysylki na serwer.</span>
+        <span>&copy; Jakub Dzwoniarski &middot; narzedzie dla agencji marketingowych</span>
+      </div>
+    </footer>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
