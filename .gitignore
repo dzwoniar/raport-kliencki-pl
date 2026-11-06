@@ -1,8 +1,4 @@
 node_modules/
-# Wygenerowane raporty klientow trzymamy poza git (moga zawierac realne dane).
-# Sample demo jest commitowany jawnie ponizej.
-output/*
-!output/klient-demo/
 *.log
 .DS_Store
 # Screeny podgladu kadru (regenerowalne skryptem); scenariusz i reset.ps1 sa trzymane w gicie.

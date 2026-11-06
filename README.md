@@ -4,6 +4,8 @@ Deterministyczny miesięczny raport dla agencji performance. Łączy wydatek **M
 
 > **Status:** build pod demo YouTube (walidacja popytu), nie gotowy produkt. Świadomie okrojony do widocznego kręgosłupa happy-path. Pełny zakres (bezpieczeństwo, multi-tenant, magic-link, retencja, AI) opisuje wewnętrzny plan rozwoju (nie jest częścią tej wersji portfolio) — **nie budujemy go, dopóki film nie potwierdzi popytu.**
 
+**[Otwórz przykładowy raport](https://dzwoniar.github.io/raport-kliencki-pl/)**. Sprawdź, jak wydatki i dane od klienta przekładają się na wnioski i proponowane działania. Dane syntetyczne.
+
 Wedge: agencje co miesiąc pokazują kliki i koszt, ale nie odpowiadają, ile leadów było wartościowych, ile weszło w sprzedaż i co z tego wynika. Ten pipeline domyka ostatni odcinek lejka → decyzje.
 
 ---
@@ -63,7 +65,8 @@ templates/report.css   # A4, memo edytorskie, B/W-safe, fonty systemowe (zero ż
 fixtures/klient-demo/  # syntetyczny klient PL (Meta CSV + feedback + config) — ZERO realnych danych
 panel/feedback-form.html  # statyczny prop formularza klienta
 test/metrics.test.mjs  # 13 testów silnika: N/A, lejek, rozbieżność, brak-ROAS
-output/                # generowane raporty (gitignore); klient-demo commitowany jako sample
+docs/index.html        # przykładowy raport opublikowany w GitHub Pages
+output/                # raporty generowane lokalnie
 ```
 
 Schemat Meta CSV: `zrodlo;id_konta;id_kampanii;nazwa;okres;timezone;waluta;spend;impressions;clicks;platform_leads`
@@ -107,4 +110,4 @@ Multi-tenant, auth/MFA, magic-link server, retencja/RODO, kolejka, audit, moduł
 
 ## Wersja portfolio i walidacja
 
-Repozytorium zawiera kod oraz syntetyczne zestawy demonstracyjne. Realne arkusze, raporty, cache wdrożeń, screeny i materiały klienta nie są częścią publikacji. Wyniki generuj lokalnie według komend powyżej. CI uruchamia istniejące testy na Node 24, bez zależności npm i bez sekretów. Ta publikacja kodu nie potwierdza bezpieczeństwa dowolnych zewnętrznych danych wejściowych ani gotowości produktu do wdrożenia.
+Repozytorium zawiera kod oraz syntetyczne zestawy demonstracyjne. Realne arkusze, raporty, cache wdrożeń, screeny i materiały klienta nie są częścią publikacji. Publiczny raport powstaje z `fixtures/klient-demo`. Aby go odtworzyć, uruchom `npm run demo` i skopiuj `output/klient-demo/cycle-2026-06/report.html` do `docs/index.html`. Licencje osadzonych fontów znajdują się w [`docs/font-licenses`](docs/font-licenses/). CI uruchamia istniejące testy na Node 24, bez zależności npm i bez sekretów. Ta publikacja kodu nie potwierdza bezpieczeństwa dowolnych zewnętrznych danych wejściowych ani gotowości produktu do wdrożenia.
